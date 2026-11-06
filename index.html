@@ -1,0 +1,989 @@
+<!doctype html>
+<!--
+  Zakariya Mohamad — personal site (GitHub Pages, no build step).
+
+  WHAT TO EDIT BEFORE PUBLISHING (search for "TO FILL"):
+    1. Personal statement (EN + FR) in section 01.
+    2. LinkedIn and GitHub URLs in section 06, Zachbank source link in section 03.
+    3. Add cv.pdf next to this file (the CV buttons hide themselves on the live site until it exists).
+    4. Optional: add assets/zachbank.png (a real screenshot, ~1600×1000) — it appears automatically.
+    5. Market notes: edit the NOTES list at the top of the <script> at the bottom of this file.
+
+  Placeholders marked data-todo are shown with a dashed outline in preview and are
+  removed automatically on *.github.io, so nothing unfinished goes live by accident.
+  Language: ?lang=fr in the URL opens the French version directly.
+-->
+<html lang="en" data-lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zakariya Mohamad — Applied Mathematics &amp; Economics</title>
+<meta name="description" content="Zakariya Mohamad — applied mathematics and economics at Université Grenoble Alpes. Builder of Zachbank, a full-stack personal-finance platform, and author of one-page market notes with dated, checkable predictions.">
+<meta name="author" content="Zakariya Mohamad">
+<meta name="color-scheme" content="light dark">
+<meta name="theme-color" content="#0B1A30">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="Zakariya Mohamad — Applied Mathematics &amp; Economics">
+<meta property="og:description" content="Applied mathematics and economics at Université Grenoble Alpes. Builder of Zachbank. One-page market notes with dated, checkable predictions.">
+<meta property="profile:first_name" content="Zakariya">
+<meta property="profile:last_name" content="Mohamad">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%230B1A30'/%3E%3Crect x='4.5' y='4.5' width='55' height='55' fill='none' stroke='%23B08D57' stroke-width='1.5'/%3E%3Ctext x='32' y='41.5' font-family='Georgia,serif' font-size='25' font-weight='700' fill='%23F3EEE3' text-anchor='middle' letter-spacing='1'%3EZM%3C/text%3E%3C/svg%3E">
+<link rel="preload" href="assets/fonts/zm-serif-600.woff" as="font" type="font/woff" crossorigin>
+<link rel="preload" href="assets/fonts/inter-400.woff" as="font" type="font/woff" crossorigin>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "Zakariya Mohamad",
+  "affiliation": { "@type": "CollegeOrUniversity", "name": "Université Grenoble Alpes" },
+  "address": { "@type": "PostalAddress", "addressLocality": "Grenoble", "addressCountry": "FR" },
+  "knowsLanguage": ["ku", "fr", "en", "it"],
+  "knowsAbout": ["Finance", "Economics", "Software engineering"]
+}
+</script>
+<style>
+/* ---------- Fonts (self-hosted, SIL OFL — see assets/fonts/OFL.txt) ---------- */
+@font-face { font-family: "ZM Serif"; src: url("assets/fonts/zm-serif-400.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "ZM Serif"; src: url("assets/fonts/zm-serif-500.woff") format("woff"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "ZM Serif"; src: url("assets/fonts/zm-serif-600.woff") format("woff"); font-weight: 600; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("assets/fonts/inter-400.woff") format("woff"); font-weight: 400; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("assets/fonts/inter-500.woff") format("woff"); font-weight: 500; font-style: normal; font-display: swap; }
+@font-face { font-family: "Inter"; src: url("assets/fonts/inter-600.woff") format("woff"); font-weight: 600; font-style: normal; font-display: swap; }
+
+/* ---------- Tokens ---------- */
+:root {
+  --paper: #FBFAF7;
+  --paper-2: #F3F0E8;
+  --card: #FFFFFF;
+  --ink: #0F1B2D;
+  --ink-2: #2E3746;
+  --muted: #5C6474;
+  --rule: #DFD8CA;
+  --rule-strong: #C7BEAC;
+  --brand: #0E2341;
+  --brand-2: #1A3563;
+  --on-brand: #FBFAF7;
+  --brass: #7F6236;
+  --brass-line: #B08D57;
+  --green: #1D6A4E;
+  --red: #9B2E2E;
+  --amber: #85661B;
+  --bar: #0B1A30;
+  --bar-ink: #D6DAE1;
+  --bar-muted: #8E98A8;
+  --bar-rule: #22324D;
+  --dark: #0B1A30;
+  --dark-ink: #EDE8DD;
+  --dark-muted: #A7AFBC;
+  --dark-rule: #253553;
+
+  --serif: "ZM Serif", "Source Serif 4", "Source Serif Pro", Georgia, "Times New Roman", serif;
+  --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+
+  --wrap: 1160px;
+  --gutter: clamp(16px, 4vw, 40px);
+  --header-h: 64px;
+  --bar-h: 34px;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --paper: #0A111C;
+    --paper-2: #0E1826;
+    --card: #111D2E;
+    --ink: #EEEAE1;
+    --ink-2: #C8CDD5;
+    --muted: #9AA2AF;
+    --rule: #1F2C40;
+    --rule-strong: #2E3E57;
+    --brand: #E9E3D6;
+    --brand-2: #FFFFFF;
+    --on-brand: #0A111C;
+    --brass: #CFAF78;
+    --brass-line: #A88A57;
+    --green: #5DB892;
+    --red: #E58A8A;
+    --amber: #D9B45E;
+    --bar: #060C15;
+    --bar-rule: #1A2639;
+    --dark: #060C15;
+    --dark-rule: #1A2639;
+  }
+}
+
+/* ---------- Base ---------- */
+*, *::before, *::after { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; scroll-padding-top: calc(var(--header-h) + 16px); }
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink-2);
+  font: 400 17px/1.65 var(--sans);
+  font-feature-settings: "kern", "liga", "calt";
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+}
+img { max-width: 100%; display: block; }
+a { color: inherit; }
+p { margin: 0 0 1em; }
+h1, h2, h3, h4 { margin: 0; color: var(--ink); font-weight: 500; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+sup { font-size: .68em; line-height: 0; vertical-align: super; }
+.num, time, td, .tnum { font-variant-numeric: tabular-nums lining-nums; }
+::selection { background: var(--brass-line); color: #fff; }
+:focus-visible { outline: 2px solid var(--brass-line); outline-offset: 3px; border-radius: 1px; }
+
+/* Language switching: one element per language, the inactive one is hidden. */
+html[data-lang="en"] body [lang="fr"],
+html[data-lang="fr"] body [lang="en"] { display: none !important; }
+
+.wrap { max-width: var(--wrap); margin: 0 auto; padding-inline: var(--gutter); }
+.skip {
+  position: absolute; left: 12px; top: -48px; z-index: 100;
+  background: var(--brand); color: var(--on-brand); padding: 10px 14px;
+  font: 600 13px/1 var(--sans); text-decoration: none;
+}
+.skip:focus { top: 12px; }
+
+.eyebrow, .label {
+  font: 600 11.5px/1.3 var(--sans);
+  letter-spacing: .16em;
+  text-transform: uppercase;
+}
+.eyebrow { color: var(--brass); }
+.label { color: var(--muted); font-weight: 500; letter-spacing: .14em; font-size: 11px; }
+
+/* ---------- Clock bar ---------- */
+.bar {
+  background: var(--bar);
+  color: var(--bar-ink);
+  font: 500 11px/1 var(--sans);
+  letter-spacing: .14em;
+  text-transform: uppercase;
+}
+.bar .wrap { display: flex; align-items: center; justify-content: space-between; height: var(--bar-h); gap: 16px; }
+.clocks { display: flex; align-items: center; gap: 0; }
+.clock { display: flex; align-items: baseline; gap: 8px; padding: 0 16px; border-left: 1px solid var(--bar-rule); white-space: nowrap; }
+.clock:first-child { padding-left: 0; border-left: 0; }
+.clock .city { color: var(--bar-muted); }
+.clock time { color: #FFFFFF; letter-spacing: .06em; font-weight: 600; }
+.bar-date { color: var(--bar-muted); white-space: nowrap; }
+
+/* ---------- Header ---------- */
+.site-header {
+  position: sticky; top: 0; z-index: 50;
+  background: color-mix(in srgb, var(--paper) 88%, transparent);
+  -webkit-backdrop-filter: saturate(140%) blur(10px);
+  backdrop-filter: saturate(140%) blur(10px);
+  border-bottom: 1px solid transparent;
+  transition: border-color .2s ease;
+}
+.site-header.scrolled { border-bottom-color: var(--rule); }
+.site-header .wrap { display: flex; align-items: center; height: var(--header-h); gap: 24px; }
+.brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: var(--ink); margin-right: auto; }
+.mono {
+  width: 36px; height: 36px; display: grid; place-items: center;
+  border: 1px solid var(--brass-line);
+  font: 600 14px/1 var(--serif); letter-spacing: .06em; color: var(--ink);
+}
+.brand-name { font: 600 12.5px/1 var(--sans); letter-spacing: .16em; text-transform: uppercase; }
+.nav { display: flex; gap: 26px; }
+.nav a {
+  text-decoration: none; color: var(--ink-2);
+  font: 500 12px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase;
+  padding: 8px 0; border-bottom: 1px solid transparent; transition: color .15s, border-color .15s;
+}
+.nav a:hover { color: var(--ink); }
+.nav a.active { color: var(--ink); border-bottom-color: var(--brass-line); }
+.lang {
+  display: inline-flex; border: 1px solid var(--rule-strong); border-radius: 2px; overflow: hidden;
+}
+.lang button {
+  appearance: none; border: 0; background: transparent; color: var(--muted); cursor: pointer;
+  font: 600 11px/1 var(--sans); letter-spacing: .14em; padding: 8px 10px;
+}
+.lang button[aria-pressed="true"] { background: var(--brand); color: var(--on-brand); }
+.menu-btn {
+  display: none; appearance: none; background: transparent; border: 1px solid var(--rule-strong); border-radius: 2px;
+  color: var(--ink); font: 600 11px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; padding: 9px 12px; cursor: pointer;
+}
+
+/* ---------- Buttons ---------- */
+.btn {
+  display: inline-flex; align-items: center; gap: 10px;
+  font: 600 12.5px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase;
+  text-decoration: none; padding: 16px 22px; border-radius: 2px; border: 1px solid var(--brand);
+  transition: background .15s, color .15s, border-color .15s;
+}
+.btn svg { width: 14px; height: 14px; flex: none; }
+.btn-primary { background: var(--brand); color: var(--on-brand); }
+.btn-primary:hover { background: var(--brand-2); border-color: var(--brand-2); }
+.btn-ghost { background: transparent; color: var(--brand); }
+.btn-ghost:hover { background: var(--brand); color: var(--on-brand); }
+
+/* ---------- Hero ---------- */
+.hero { padding: clamp(56px, 8vw, 104px) 0 clamp(64px, 9vw, 120px); }
+.hero-grid { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: clamp(40px, 6vw, 88px); align-items: end; }
+.hero .eyebrow { margin-bottom: 28px; display: flex; align-items: center; gap: 14px; }
+.hero .eyebrow::before { content: ""; width: 36px; height: 1px; background: var(--brass-line); }
+.name {
+  font: 600 clamp(3.4rem, 8.4vw, 6.6rem)/.98 var(--serif);
+  letter-spacing: -.022em; color: var(--ink); margin-bottom: 32px;
+}
+.lede { font: 400 clamp(1.18rem, 1.9vw, 1.42rem)/1.5 var(--serif); color: var(--ink-2); max-width: 36ch; margin-bottom: 40px; }
+.cta { display: flex; flex-wrap: wrap; gap: 12px; }
+
+.glance { border-top: 2px solid var(--ink); padding-top: 18px; }
+.glance-title { font: 600 11.5px/1.3 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--brass); margin-bottom: 8px; }
+.glance dl { margin: 0; }
+.glance .row { display: flex; align-items: baseline; gap: 12px; padding: 13px 0; border-bottom: 1px dotted var(--rule-strong); }
+.glance dt { font: 500 11px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); flex: none; width: 112px; }
+.glance dd { margin: 0; font: 500 15px/1.45 var(--sans); color: var(--ink); }
+.status-dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--green); margin-right: 8px; vertical-align: 1px; box-shadow: 0 0 0 3px color-mix(in srgb, var(--green) 18%, transparent); }
+
+/* ---------- Sections ---------- */
+.section { padding: clamp(72px, 9vw, 120px) 0; border-top: 1px solid var(--rule); }
+.section--alt { background: var(--paper-2); }
+.sec-grid { display: grid; grid-template-columns: 200px minmax(0, 1fr); gap: clamp(32px, 5vw, 72px); }
+.rail { position: sticky; top: calc(var(--header-h) + 32px); align-self: start; }
+.rail .n { display: block; font: 500 30px/1 var(--serif); color: var(--brass); margin-bottom: 12px; }
+.rail .label { display: block; }
+.h2 { font: 500 clamp(2.1rem, 4vw, 2.9rem)/1.08 var(--serif); letter-spacing: -.012em; color: var(--ink); margin-bottom: 20px; }
+.intro { font-size: 18px; color: var(--ink-2); max-width: 62ch; margin-bottom: 40px; }
+.h3 { font: 600 1.32rem/1.25 var(--serif); color: var(--ink); }
+.h4 { font: 600 11px/1.3 var(--sans); letter-spacing: .16em; text-transform: uppercase; color: var(--muted); margin: 36px 0 14px; }
+
+/* 01 Profile */
+.statement { font: 400 clamp(1.35rem, 2.4vw, 1.75rem)/1.45 var(--serif); color: var(--ink); max-width: 40ch; margin-bottom: 56px; }
+.statement p:last-child { margin-bottom: 0; }
+.focus { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--ink); }
+.focus li { padding: 22px 24px 0 0; }
+.focus li + li { padding-left: 24px; border-left: 1px solid var(--rule); }
+.focus p { margin: 10px 0 0; font-size: 15.5px; color: var(--ink-2); }
+
+/* 02 Education */
+.edu { display: grid; grid-template-columns: 150px minmax(0, 1fr); gap: 32px; border-top: 1px solid var(--ink); padding-top: 24px; }
+.edu-when { font: 500 15px/1.4 var(--sans); color: var(--ink); }
+.edu-when .sub { display: block; margin-top: 4px; font-size: 13px; color: var(--muted); }
+.edu-full { color: var(--muted); font-size: 15.5px; margin: 8px 0 4px; }
+.edu-where { font-size: 14px; color: var(--muted); margin: 0; }
+.courses { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); column-gap: 32px; }
+.courses li { padding: 11px 0; border-bottom: 1px solid var(--rule); font-size: 15.5px; color: var(--ink); }
+.courses li small { display: block; color: var(--muted); font-size: 13.5px; margin-top: 2px; }
+.acts li { font-size: 15.5px; }
+.acts strong { color: var(--ink); font-weight: 600; }
+
+/* 03 Zachbank */
+.pills { display: flex; flex-wrap: wrap; gap: 8px; margin: 4px 0 44px; }
+.pills li { font: 500 12px/1 var(--sans); letter-spacing: .06em; color: var(--ink-2); border: 1px solid var(--rule-strong); padding: 8px 11px; border-radius: 2px; background: var(--card); }
+.pills li:first-child::before { content: ""; display: inline-block; width: 6px; height: 6px; border-radius: 50%; background: var(--green); margin-right: 8px; vertical-align: 1px; }
+.shot { margin: 0 0 44px; border: 1px solid var(--rule-strong); background: var(--card); padding: 10px; }
+.shot figcaption { font-size: 13px; color: var(--muted); padding: 10px 4px 2px; }
+.features { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px; background: var(--rule-strong); border: 1px solid var(--rule-strong); margin-bottom: 56px; }
+.feature { background: var(--card); padding: 28px 28px 26px; }
+.feature .k { display: block; font: 600 11px/1 var(--sans); letter-spacing: .16em; color: var(--brass); margin-bottom: 16px; }
+.feature p { margin: 12px 0 0; font-size: 15.5px; color: var(--ink-2); }
+.zb-cols { display: grid; grid-template-columns: minmax(0, 7fr) minmax(0, 5fr); gap: 48px; }
+.stack { width: 100%; border-collapse: collapse; }
+.stack caption { text-align: left; }
+.stack th, .stack td { text-align: left; vertical-align: top; padding: 13px 0; border-bottom: 1px solid var(--rule-strong); }
+.stack tr:first-child th, .stack tr:first-child td { border-top: 1px solid var(--ink); }
+.stack th { width: 128px; font: 500 11px/1.6 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding-right: 16px; }
+.stack td { font-size: 15px; color: var(--ink); }
+.stack td .i { display: inline-block; white-space: nowrap; }
+.stack td .i:not(:last-child)::after { content: "/"; margin: 0 8px; color: var(--rule-strong); }
+.decisions { border-top: 1px solid var(--ink); }
+.decisions li { position: relative; padding: 14px 0 14px 22px; border-bottom: 1px solid var(--rule-strong); font-size: 15.5px; }
+.decisions li::before { content: ""; position: absolute; left: 0; top: 25px; width: 10px; height: 1px; background: var(--brass-line); }
+.zb-sub { font: 400 clamp(1.12rem, 1.8vw, 1.32rem)/1.5 var(--serif); color: var(--ink-2); max-width: 46ch; margin-bottom: 20px; }
+.textlink {
+  display: inline-flex; align-items: center; gap: 8px; margin-top: 28px;
+  font: 600 12.5px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--ink);
+  text-decoration: none; border-bottom: 1px solid var(--brass-line); padding-bottom: 6px;
+}
+.textlink:hover { color: var(--brass); }
+
+/* 04 Notes */
+.method { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); border-top: 1px solid var(--ink); border-bottom: 1px solid var(--rule-strong); margin-bottom: 40px; counter-reset: step; }
+.method li { padding: 20px 20px 22px 0; counter-increment: step; }
+.method li + li { padding-left: 20px; border-left: 1px solid var(--rule); }
+.method li::before { content: "0" counter(step); display: block; font: 600 11px/1 var(--sans); letter-spacing: .16em; color: var(--brass); margin-bottom: 12px; }
+.method .m-t { display: block; font: 600 1.08rem/1.3 var(--serif); color: var(--ink); }
+.method .m-d { display: block; margin-top: 6px; font-size: 14.5px; color: var(--muted); }
+.record[hidden] { display: none; }
+.record { display: flex; flex-wrap: wrap; gap: 0; margin-bottom: 28px; border: 1px solid var(--rule-strong); background: var(--card); }
+.record div { flex: 1 1 0; padding: 16px 22px; border-right: 1px solid var(--rule); }
+.record div:last-child { border-right: 0; }
+.record .v { display: block; font: 500 28px/1 var(--serif); color: var(--ink); }
+.record .label { display: block; margin-top: 8px; }
+.ledger { width: 100%; border-collapse: collapse; }
+.ledger th { text-align: left; font: 500 11px/1.4 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); padding: 0 16px 12px 0; border-bottom: 1px solid var(--ink); white-space: nowrap; }
+.ledger td { padding: 16px 16px 16px 0; border-bottom: 1px solid var(--rule-strong); font-size: 15px; color: var(--ink); vertical-align: top; }
+.ledger td.no { font: 500 18px/1.2 var(--serif); color: var(--brass); width: 56px; }
+.ledger td.t a { font: 600 16.5px/1.35 var(--serif); text-decoration: none; color: var(--ink); border-bottom: 1px solid var(--rule-strong); }
+.ledger td.t a:hover { border-bottom-color: var(--brass-line); }
+.ledger td.d { white-space: nowrap; color: var(--ink-2); }
+.ledger .empty td { color: var(--muted); font-style: normal; padding: 22px 0; }
+.badge { display: inline-flex; align-items: center; gap: 7px; font: 600 10.5px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; padding: 6px 8px; border: 1px solid currentColor; border-radius: 2px; white-space: nowrap; }
+.badge::before { content: ""; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+.badge.open { color: var(--ink-2); }
+.badge.confirmed { color: var(--green); }
+.badge.refuted { color: var(--red); }
+.badge.partial { color: var(--amber); }
+.fine { margin-top: 22px; font-size: 13px; color: var(--muted); }
+
+/* 05 Skills */
+.skills { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 40px; }
+.skills > div { border-top: 1px solid var(--ink); padding-top: 20px; }
+.skills .h3 { margin-bottom: 18px; }
+.chips { display: flex; flex-wrap: wrap; gap: 8px; }
+.chips li { font: 500 13.5px/1 var(--sans); color: var(--ink); border: 1px solid var(--rule-strong); background: var(--card); padding: 9px 11px; border-radius: 2px; }
+.plain li { padding: 10px 0; border-bottom: 1px solid var(--rule-strong); font-size: 15.5px; color: var(--ink); }
+.leaders li { display: flex; align-items: baseline; gap: 10px; padding: 10px 0; font-size: 15.5px; color: var(--ink); }
+.leaders li::after { content: ""; order: 1; flex: 1; border-bottom: 1px dotted var(--rule-strong); transform: translateY(-4px); }
+.leaders .lv { order: 2; color: var(--muted); font-size: 14px; white-space: nowrap; }
+
+/* 06 Contact (dark) */
+.section--dark { background: var(--dark); color: var(--dark-ink); border-top: 0; }
+.section--dark .rail .n { color: #CFAF78; }
+.section--dark .label { color: var(--dark-muted); }
+.section--dark .h2 { color: #FFFFFF; }
+.section--dark .intro { color: var(--dark-muted); }
+.email-row { display: flex; flex-wrap: wrap; align-items: center; gap: 16px; padding: 22px 0; border-top: 1px solid var(--dark-rule); border-bottom: 1px solid var(--dark-rule); }
+.email { font: 500 clamp(1.2rem, 4.4vw, 2.2rem)/1.2 var(--serif); color: #FFFFFF; text-decoration: none; overflow-wrap: anywhere; margin-right: auto; }
+.email:hover { color: #CFAF78; }
+.copy {
+  appearance: none; background: transparent; color: var(--dark-ink); border: 1px solid #3A4C6B; border-radius: 2px; cursor: pointer;
+  font: 600 11px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; padding: 11px 14px;
+}
+.copy:hover { border-color: #CFAF78; color: #FFFFFF; }
+.links { display: flex; flex-wrap: wrap; gap: 4px 36px; margin-top: 8px; }
+.links a { display: inline-flex; align-items: center; gap: 8px; padding: 18px 0; color: var(--dark-ink); text-decoration: none; font: 600 12px/1 var(--sans); letter-spacing: .14em; text-transform: uppercase; }
+.links a:hover { color: #CFAF78; }
+.links svg { width: 13px; height: 13px; }
+.loc { margin-top: 28px; font-size: 13.5px; color: var(--dark-muted); }
+.section--dark :focus-visible { outline-color: #CFAF78; }
+
+/* ---------- Footer ---------- */
+.footer { background: var(--dark); color: var(--dark-muted); border-top: 1px solid var(--dark-rule); font-size: 12.5px; }
+.footer .wrap { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px 24px; padding-block: 22px; }
+.footer a { color: var(--dark-ink); text-decoration: none; }
+.footer a:hover { color: #CFAF78; }
+.footer .fine-print { flex-basis: 100%; color: #7E8899; font-size: 12px; }
+
+/* ---------- Draft helpers (preview only; removed on the live site) ---------- */
+html.is-draft [data-todo] { outline: 1px dashed var(--brass-line); outline-offset: 6px; position: relative; }
+html.is-draft [data-todo]::after {
+  content: "TO FILL"; position: absolute; top: -18px; right: 0;
+  font: 600 9.5px/1 var(--sans); letter-spacing: .14em; color: var(--brass); background: var(--paper); padding: 2px 4px;
+}
+.section--dark [data-todo]::after { background: var(--dark) !important; color: #CFAF78 !important; }
+.draft-banner {
+  position: fixed; left: 50%; bottom: 16px; transform: translateX(-50%); z-index: 60;
+  background: var(--ink); color: var(--paper); font: 500 12.5px/1.4 var(--sans);
+  padding: 10px 14px; border-radius: 2px; box-shadow: 0 6px 24px rgba(0,0,0,.18); max-width: calc(100% - 32px);
+}
+.draft-banner button { margin-left: 10px; background: transparent; color: inherit; border: 1px solid currentColor; border-radius: 2px; font: 600 10.5px/1 var(--sans); letter-spacing: .12em; text-transform: uppercase; padding: 5px 7px; cursor: pointer; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1040px) {
+  .nav { gap: 18px; }
+  .brand-name { display: none; }
+}
+@media (max-width: 900px) {
+  .hero-grid { grid-template-columns: 1fr; align-items: start; }
+  .sec-grid { grid-template-columns: 1fr; gap: 28px; }
+  .rail { position: static; display: flex; align-items: baseline; gap: 14px; }
+  .rail .n { font-size: 22px; margin: 0; }
+  .zb-cols { grid-template-columns: 1fr; }
+  .skills { grid-template-columns: 1fr; gap: 32px; }
+  .menu-btn { display: inline-block; }
+  .brand-name { display: inline; }
+  .nav {
+    display: none; position: absolute; left: 0; right: 0; top: var(--header-h);
+    flex-direction: column; gap: 0; background: var(--paper); border-bottom: 1px solid var(--rule);
+    padding: 8px var(--gutter) 16px;
+  }
+  .nav a { padding: 14px 0; border-bottom: 1px solid var(--rule); }
+  .nav a.active { border-bottom-color: var(--rule); color: var(--brass); }
+  .site-header.open .nav { display: flex; }
+  .site-header .wrap { gap: 12px; }
+}
+@media (max-width: 720px) {
+  .clock.opt, .bar-date { display: none; }
+  .focus, .method { grid-template-columns: 1fr; }
+  .focus li, .focus li + li { padding: 18px 0; border-left: 0; border-bottom: 1px solid var(--rule); }
+  .method li, .method li + li { padding: 16px 0; border-left: 0; }
+  .method li + li { border-top: 1px solid var(--rule); }
+  .features { grid-template-columns: 1fr; }
+  .edu { grid-template-columns: 1fr; gap: 12px; }
+  .courses { grid-template-columns: 1fr; }
+  .stack tr { display: block; border-bottom: 1px solid var(--rule-strong); padding: 12px 0; }
+  .stack tr:first-child { border-top: 1px solid var(--ink); }
+  .stack th, .stack td, .stack tr:first-child th, .stack tr:first-child td { display: block; width: auto; border: 0; padding: 0; }
+  .stack th { margin-bottom: 4px; }
+  .glance dt { width: 96px; }
+  /* Ledger becomes stacked cards */
+  .ledger thead { display: none; }
+  .ledger, .ledger tbody, .ledger tr, .ledger td { display: block; width: 100%; }
+  .ledger tr { border-bottom: 1px solid var(--rule-strong); padding: 14px 0; }
+  .ledger tr:first-child { border-top: 1px solid var(--ink); }
+  .ledger td { border: 0; padding: 4px 0; }
+  .ledger td[data-th]::before { content: attr(data-th); display: inline-block; width: 104px; font: 500 10.5px/1.6 var(--sans); letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .ledger td.no, .ledger td.t { display: inline; }
+  .ledger td.no { margin-right: 10px; }
+  .record div { flex: 1 1 40%; border-bottom: 1px solid var(--rule); }
+}
+@media (max-width: 420px) {
+  .brand-name { display: none; }
+  .name { font-size: 3.05rem; }
+  .btn { width: 100%; justify-content: center; }
+}
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  * { transition: none !important; }
+}
+
+/* ---------- Print: a clean one-document version ---------- */
+@media print {
+  :root { --paper: #fff; --paper-2: #fff; --card: #fff; --ink: #000; --ink-2: #222; --muted: #555; }
+  .bar, .site-header, .cta, .copy, .draft-banner, .menu-btn, .skip, .textlink { display: none !important; }
+  .section, .section--alt { padding: 28px 0; background: #fff; }
+  .section--dark, .footer { background: #fff; color: #000; }
+  .section--dark .h2, .email { color: #000; }
+  .rail { position: static; }
+  a { text-decoration: none; }
+}
+</style>
+</head>
+<body>
+<a class="skip" href="#main"><span lang="en">Skip to content</span><span lang="fr">Aller au contenu</span></a>
+
+<!-- World clocks -->
+<div class="bar" role="region" aria-label="World clocks">
+  <div class="wrap">
+    <div class="clocks">
+      <div class="clock"><span class="city">New York</span><time data-tz="America/New_York">--:--</time></div>
+      <div class="clock opt"><span class="city"><span lang="en">London</span><span lang="fr">Londres</span></span><time data-tz="Europe/London">--:--</time></div>
+      <div class="clock"><span class="city">Paris</span><time data-tz="Europe/Paris">--:--</time></div>
+      <div class="clock opt"><span class="city">Tokyo</span><time data-tz="Asia/Tokyo">--:--</time></div>
+    </div>
+    <div class="bar-date" data-today></div>
+  </div>
+</div>
+
+<header class="site-header" id="header">
+  <div class="wrap">
+    <a class="brand" href="#top" aria-label="Zakariya Mohamad — home">
+      <span class="mono" aria-hidden="true">ZM</span>
+      <span class="brand-name">Zakariya Mohamad</span>
+    </a>
+    <nav class="nav" id="site-nav" aria-label="Main">
+      <a href="#profile"><span lang="en">Profile</span><span lang="fr">Profil</span></a>
+      <a href="#education"><span lang="en">Education</span><span lang="fr">Formation</span></a>
+      <a href="#zachbank">Zachbank</a>
+      <a href="#notes">Notes</a>
+      <a href="#skills"><span lang="en">Skills</span><span lang="fr">Compétences</span></a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <div class="lang" role="group" aria-label="Language / Langue">
+      <button type="button" data-set-lang="en" aria-pressed="true">EN</button>
+      <button type="button" data-set-lang="fr" aria-pressed="false">FR</button>
+    </div>
+    <button class="menu-btn" type="button" aria-controls="site-nav" aria-expanded="false">Menu</button>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="top">
+    <div class="wrap hero-grid">
+      <div>
+        <p class="eyebrow"><span lang="en">Applied Mathematics &amp; Economics</span><span lang="fr">Mathématiques appliquées &amp; économie</span></p>
+        <h1 class="name">Zakariya<br>Mohamad</h1>
+        <p class="lede" lang="en">Undergraduate in applied mathematics and economics at Université Grenoble Alpes. Builder of Zachbank, a full-stack personal-finance platform, and author of one-page market notes with dated, checkable predictions.</p>
+        <p class="lede" lang="fr">Étudiant en mathématiques appliquées et en économie à l’Université Grenoble Alpes. Concepteur de Zachbank, une plateforme de finance personnelle full-stack, et auteur de notes de marché d’une page aux prédictions datées et vérifiables.</p>
+        <div class="cta">
+          <a class="btn btn-primary" href="cv.pdf" data-cv target="_blank" rel="noopener">
+            <span lang="en">Download CV</span><span lang="fr">Télécharger le CV</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v8m0 0 3.5-3.5M8 10 4.5 6.5M2.5 13.5h11"/></svg>
+          </a>
+          <a class="btn btn-ghost" href="#zachbank">
+            <span lang="en">View Zachbank</span><span lang="fr">Découvrir Zachbank</span>
+            <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M2.5 8h11m0 0L9.5 4m4 4-4 4"/></svg>
+          </a>
+        </div>
+      </div>
+
+      <aside class="glance" aria-labelledby="glance-title">
+        <h2 class="glance-title" id="glance-title"><span lang="en">At a glance</span><span lang="fr">En bref</span></h2>
+        <dl>
+          <div class="row"><dt><span lang="en">Based in</span><span lang="fr">Basé à</span></dt><dd>Grenoble, France</dd></div>
+          <div class="row"><dt><span lang="en">Program</span><span lang="fr">Formation</span></dt><dd><span lang="en">Licence MIASHS — Year 2</span><span lang="fr">Licence MIASHS — 2<sup>e</sup> année</span></dd></div>
+          <div class="row"><dt><span lang="en">Track</span><span lang="fr">Parcours</span></dt><dd><span lang="en">Economics</span><span lang="fr">Sciences économiques</span></dd></div>
+          <div class="row"><dt><span lang="en">Building</span><span lang="fr">Projet</span></dt><dd>Zachbank <span class="tnum" style="color:var(--muted)">·</span> fintech</dd></div>
+          <div class="row"><dt><span lang="en">Languages</span><span lang="fr">Langues</span></dt><dd><span lang="en">Kurdish · French · English · Italian</span><span lang="fr">Kurde · Français · Anglais · Italien</span></dd></div>
+          <div class="row"><dt><span lang="en">Status</span><span lang="fr">Statut</span></dt><dd><span class="status-dot" aria-hidden="true"></span><span lang="en">Open to opportunities</span><span lang="fr">Ouvert aux opportunités</span></dd></div>
+        </dl>
+      </aside>
+    </div>
+  </section>
+
+  <!-- ================= 01 PROFILE ================= -->
+  <section class="section" id="profile" aria-labelledby="profile-title">
+    <div class="wrap sec-grid">
+      <div class="rail"><span class="n">01</span><span class="label" id="profile-title"><span lang="en">Profile</span><span lang="fr">Profil</span></span></div>
+      <div>
+        <!-- TO FILL: your personal statement, in your own words (3–4 sentences each language). Then delete data-todo. -->
+        <div class="statement" data-todo>
+          <p lang="en">[Personal statement — three to four sentences, in your own words: who you are, what you are working toward, what you bring.]</p>
+          <p lang="fr">[Présentation personnelle — trois à quatre phrases, avec tes propres mots&nbsp;: qui tu es, vers quoi tu travailles, ce que tu apportes.]</p>
+        </div>
+        <ul class="focus">
+          <li>
+            <h3 class="h3">Finance</h3>
+            <p lang="en">Markets; corporate and investment banking.</p>
+            <p lang="fr">Marchés&#8239;; banque de financement et d’investissement.</p>
+          </li>
+          <li>
+            <h3 class="h3"><span lang="en">Software</span><span lang="fr">Logiciel</span></h3>
+            <p lang="en">Full-stack engineering for financial products.</p>
+            <p lang="fr">Ingénierie full-stack de produits financiers.</p>
+          </li>
+          <li>
+            <h3 class="h3"><span lang="en">Economics</span><span lang="fr">Économie</span></h3>
+            <p lang="en">Open-economy macroeconomics; industrial organization.</p>
+            <p lang="fr">Macroéconomie de l’économie ouverte&#8239;; économie industrielle.</p>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 02 EDUCATION ================= -->
+  <section class="section section--alt" id="education" aria-labelledby="edu-title">
+    <div class="wrap sec-grid">
+      <div class="rail"><span class="n">02</span><span class="label"><span lang="en">Education</span><span lang="fr">Formation</span></span></div>
+      <div>
+        <h2 class="h2" id="edu-title">Université Grenoble Alpes</h2>
+        <article class="edu">
+          <div class="edu-when"><span class="tnum">2026 — 2027</span><span class="sub"><span lang="en">Year 2 (L2)</span><span lang="fr">2<sup>e</sup> année (L2)</span></span></div>
+          <div>
+            <h3 class="h3"><span lang="en">Licence MIASHS — Economics track</span><span lang="fr">Licence MIASHS — parcours Sciences économiques</span></h3>
+            <p class="edu-full" lang="en">Applied Mathematics and Computer Science for the Social Sciences (Mathématiques et informatique appliquées aux sciences humaines et sociales)</p>
+            <p class="edu-full" lang="fr">Mathématiques et informatique appliquées aux sciences humaines et sociales</p>
+            <p class="edu-where">Grenoble, France</p>
+
+            <h4 class="h4"><span lang="en">Current coursework</span><span lang="fr">Enseignements en cours</span></h4>
+            <ul class="courses">
+              <li><span lang="en">Linear Algebra III</span><span lang="fr">Algèbre linéaire 3</span></li>
+              <li><span lang="en">Real Analysis III</span><span lang="fr">Analyse réelle 3</span></li>
+              <li><span lang="en">Probability II</span><span lang="fr">Probabilités 2</span></li>
+              <li><span lang="en">Algorithms &amp; Object-Oriented Programming</span><span lang="fr">Algorithmique et programmation par objets</span><small>Java</small></li>
+              <li><span lang="en">Microeconomics II</span><span lang="fr">Microéconomie 2</span><small lang="en">Imperfect competition, game theory</small><small lang="fr">Concurrence imparfaite, théorie des jeux</small></li>
+              <li><span lang="en">Macroeconomics II</span><span lang="fr">Macroéconomie 2</span><small lang="en">IS-LM, open economy, policy mix</small><small lang="fr">IS-LM, économie ouverte, policy-mix</small></li>
+              <li><span lang="en">Business &amp; Financial English</span><span lang="fr">Anglais économique et financier</span></li>
+              <li><span lang="en">English — C1/C2 elective</span><span lang="fr">Anglais — option C1/C2</span></li>
+            </ul>
+
+            <h4 class="h4"><span lang="en">Activities</span><span lang="fr">Engagement</span></h4>
+            <ul class="acts">
+              <li lang="en"><strong>Class representative</strong> — represents the year group to the teaching staff and the administration.</li>
+              <li lang="fr"><strong>Délégué de promotion</strong> — représente la promotion auprès de l’équipe pédagogique et de l’administration.</li>
+            </ul>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 03 ZACHBANK ================= -->
+  <section class="section" id="zachbank" aria-labelledby="zb-title">
+    <div class="wrap sec-grid">
+      <div class="rail"><span class="n">03</span><span class="label"><span lang="en">Flagship project</span><span lang="fr">Projet phare</span></span></div>
+      <div>
+        <h2 class="h2" id="zb-title">Zachbank</h2>
+        <p class="zb-sub" lang="en">A full-stack personal-finance platform designed around bank-grade engineering practices.</p>
+        <p class="zb-sub" lang="fr">Une plateforme de finance personnelle full-stack, conçue autour de pratiques d’ingénierie de niveau bancaire.</p>
+        <ul class="pills">
+          <li><span lang="en">Personal project</span><span lang="fr">Projet personnel</span></li>
+          <li><span lang="en">In active development</span><span lang="fr">Développement actif</span></li>
+          <li><span lang="en">EU open-banking sandbox</span><span lang="fr">Sandbox open banking (UE)</span></li>
+        </ul>
+
+        <!-- Optional: drop a real screenshot at assets/zachbank.png — this figure disappears if the file is missing. -->
+        <figure class="shot">
+          <img src="assets/zachbank.png" alt="Zachbank — transaction history and balance chart" loading="lazy" onerror="this.closest('figure').remove()">
+          <figcaption><span lang="en">Transaction history and balance chart (sandbox data).</span><span lang="fr">Historique des transactions et graphique de solde (données de sandbox).</span></figcaption>
+        </figure>
+
+        <div class="features">
+          <div class="feature">
+            <span class="k">01</span>
+            <h3 class="h3"><span lang="en">Ledger</span><span lang="fr">Grand livre</span></h3>
+            <p lang="en">Double-entry ledger engine with opening-balance seeding, running balances and two balance paths — fast cached lookup and full historical replay — to recompute from history.</p>
+            <p lang="fr">Moteur de comptabilité en partie double&nbsp;: soldes d’ouverture, soldes courants et deux chemins de calcul — lecture rapide en cache et rejeu historique complet — pour tout recalculer depuis l’historique.</p>
+          </div>
+          <div class="feature">
+            <span class="k">02</span>
+            <h3 class="h3">Open banking</h3>
+            <p lang="en">OAuth2 bank linking through TrueLayer (EU / PSD2 sandbox): server-side state validation, account and transaction sync, bank tokens encrypted at rest with AES-256-GCM.</p>
+            <p lang="fr">Connexion bancaire OAuth2 via TrueLayer (sandbox UE / DSP2)&nbsp;: validation d’état côté serveur, synchronisation des comptes et des transactions, jetons bancaires chiffrés au repos en AES-256-GCM.</p>
+          </div>
+          <div class="feature">
+            <span class="k">03</span>
+            <h3 class="h3"><span lang="en">Security</span><span lang="fr">Sécurité</span></h3>
+            <p lang="en">JWT authentication with bcrypt, ownership checks on every account endpoint, audit logging of sensitive actions, per-IP rate limiting and idempotency keys.</p>
+            <p lang="fr">Authentification JWT et bcrypt, contrôle de propriété sur chaque endpoint de compte, journal d’audit des actions sensibles, limitation de débit par IP et clés d’idempotence.</p>
+          </div>
+          <div class="feature">
+            <span class="k">04</span>
+            <h3 class="h3">Interface</h3>
+            <p lang="en">React and TypeScript dashboard: account cards, grouped transaction history with search, sort and filters, manual cash entries with notes, and interactive balance charts.</p>
+            <p lang="fr">Tableau de bord React et TypeScript&nbsp;: cartes de comptes, historique groupé avec recherche, tri et filtres, saisie d’espèces avec notes, et graphiques de solde interactifs.</p>
+          </div>
+        </div>
+
+        <div class="zb-cols">
+          <div>
+            <h3 class="h4" style="margin-top:0"><span lang="en">Stack</span><span lang="fr">Technologies</span></h3>
+            <table class="stack">
+              <tr><th scope="row">Back-end</th><td><span class="i">Java 21</span> <span class="i">Spring Boot 3</span> <span class="i">Hibernate / JPA</span> <span class="i">Flyway</span></td></tr>
+              <tr><th scope="row"><span lang="en">Data</span><span lang="fr">Données</span></th><td>PostgreSQL 16</td></tr>
+              <tr><th scope="row"><span lang="en">Security</span><span lang="fr">Sécurité</span></th><td><span class="i">Spring Security</span> <span class="i">JWT</span> <span class="i">bcrypt</span> <span class="i">AES-256-GCM</span> <span class="i">Bucket4j</span></td></tr>
+              <tr><th scope="row">Front-end</th><td><span class="i">React</span> <span class="i">TypeScript</span> <span class="i">Vite</span> <span class="i">Ant Design</span> <span class="i">Recharts</span> <span class="i">Lightweight Charts</span></td></tr>
+              <tr><th scope="row">Open banking</th><td>TrueLayer <span lang="en">(EU / PSD2)</span><span lang="fr">(UE / DSP2)</span></td></tr>
+              <tr><th scope="row">Infra</th><td>Docker Compose</td></tr>
+            </table>
+          </div>
+          <div>
+            <h3 class="h4" style="margin-top:0"><span lang="en">Engineering decisions</span><span lang="fr">Choix d’ingénierie</span></h3>
+            <ul class="decisions">
+              <li lang="en">The database schema is owned by versioned Flyway migrations — Hibernate runs in validate mode and never creates tables.</li>
+              <li lang="fr">Le schéma de la base est piloté par des migrations Flyway versionnées — Hibernate tourne en mode validate et ne crée jamais de tables.</li>
+              <li lang="en">Secrets stay out of version control; a HashiCorp Vault integration was attempted and documented as the production upgrade path.</li>
+              <li lang="fr">Les secrets restent hors du dépôt&#8239;; une intégration HashiCorp Vault a été tentée et documentée comme évolution pour la production.</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- TO FILL: link to the repository (or delete this line if the code stays private). -->
+        <a class="textlink" data-todo href="https://github.com/YOUR-USERNAME/zachbank" target="_blank" rel="noopener">
+          <span lang="en">Source code</span><span lang="fr">Code source</span>
+          <svg width="13" height="13" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 11 11 5m0 0H6m5 0v5"/></svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 04 NOTES ================= -->
+  <section class="section section--alt" id="notes" aria-labelledby="notes-title">
+    <div class="wrap sec-grid">
+      <div class="rail"><span class="n">04</span><span class="label"><span lang="en">Research</span><span lang="fr">Recherche</span></span></div>
+      <div>
+        <h2 class="h2" id="notes-title"><span lang="en">Market notes</span><span lang="fr">Notes de marché</span></h2>
+        <p class="intro" lang="en">One page each: a claim, the mechanism behind it, a quantified prediction with a check date, and what would prove it wrong. Each note is scored on its check date, and the record stays public either way.</p>
+        <p class="intro" lang="fr">Une page chacune&nbsp;: une affirmation, le mécanisme qui la porte, une prédiction chiffrée assortie d’une date de vérification, et ce qui la réfuterait. Chaque note est évaluée à sa date de vérification, et le bilan reste public, quel qu’il soit.</p>
+
+        <ol class="method">
+          <li><strong class="m-t"><span lang="en">Claim</span><span lang="fr">Affirmation</span></strong><span class="m-d"><span lang="en">One falsifiable statement.</span><span lang="fr">Une affirmation réfutable.</span></span></li>
+          <li><strong class="m-t"><span lang="en">Mechanism</span><span lang="fr">Mécanisme</span></strong><span class="m-d"><span lang="en">Why it should hold.</span><span lang="fr">Pourquoi elle devrait tenir.</span></span></li>
+          <li><strong class="m-t"><span lang="en">Prediction</span><span lang="fr">Prédiction</span></strong><span class="m-d"><span lang="en">A number and a date.</span><span lang="fr">Un chiffre et une date.</span></span></li>
+          <li><strong class="m-t"><span lang="en">Kill condition</span><span lang="fr">Condition d’échec</span></strong><span class="m-d"><span lang="en">What would prove it wrong.</span><span lang="fr">Ce qui la réfuterait.</span></span></li>
+        </ol>
+
+        <div class="record" data-record hidden></div>
+        <table class="ledger">
+          <thead>
+            <tr>
+              <th scope="col"><span lang="en">No.</span><span lang="fr">N°</span></th>
+              <th scope="col">Note</th>
+              <th scope="col"><span lang="en">Prediction</span><span lang="fr">Prédiction</span></th>
+              <th scope="col"><span lang="en">Published</span><span lang="fr">Publiée</span></th>
+              <th scope="col"><span lang="en">Check date</span><span lang="fr">Vérification</span></th>
+              <th scope="col"><span lang="en">Status</span><span lang="fr">Statut</span></th>
+            </tr>
+          </thead>
+          <tbody id="notes-body"></tbody>
+        </table>
+        <p class="fine"><span lang="en">Personal analysis, not investment advice.</span><span lang="fr">Analyses personnelles, pas des conseils en investissement. Les notes sont publiées en anglais.</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 05 SKILLS ================= -->
+  <section class="section" id="skills" aria-labelledby="skills-title">
+    <div class="wrap sec-grid">
+      <div class="rail"><span class="n">05</span><span class="label"><span lang="en">Capabilities</span><span lang="fr">Compétences</span></span></div>
+      <div>
+        <h2 class="h2" id="skills-title"><span lang="en">Skills &amp; languages</span><span lang="fr">Compétences &amp; langues</span></h2>
+        <div class="skills">
+          <div>
+            <h3 class="h3"><span lang="en">Engineering</span><span lang="fr">Ingénierie</span></h3>
+            <ul class="chips">
+              <li>Java</li><li>Spring Boot</li><li>TypeScript</li><li>React</li><li>SQL</li><li>PostgreSQL</li><li>REST APIs</li><li>Docker</li><li>Git</li><li>Flyway</li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="h3"><span lang="en">Quantitative</span><span lang="fr">Quantitatif</span></h3>
+            <ul class="plain">
+              <li><span lang="en">Linear algebra</span><span lang="fr">Algèbre linéaire</span></li>
+              <li><span lang="en">Real analysis</span><span lang="fr">Analyse réelle</span></li>
+              <li><span lang="en">Probability</span><span lang="fr">Probabilités</span></li>
+              <li><span lang="en">Micro- and macroeconomic modeling</span><span lang="fr">Modélisation micro- et macroéconomique</span></li>
+            </ul>
+          </div>
+          <div>
+            <h3 class="h3"><span lang="en">Languages</span><span lang="fr">Langues</span></h3>
+            <ul class="leaders">
+              <li><span lang="en">Kurdish</span><span lang="fr">Kurde</span><span class="lv"><span lang="en">Native</span><span lang="fr">Langue maternelle</span></span></li>
+              <li><span lang="en">French</span><span lang="fr">Français</span><span class="lv"><span lang="en">Fluent</span><span lang="fr">Courant</span></span></li>
+              <li><span lang="en">English</span><span lang="fr">Anglais</span><span class="lv"><span lang="en">Advanced</span><span lang="fr">Avancé</span></span></li>
+              <li><span lang="en">Italian</span><span lang="fr">Italien</span><span class="lv"><span lang="en">Elementary</span><span lang="fr">Notions</span></span></li>
+              <li>Latin<span class="lv"><span lang="en">Reading knowledge</span><span lang="fr">Notions de lecture</span></span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= 06 CONTACT ================= -->
+  <section class="section section--dark" id="contact" aria-labelledby="contact-title">
+    <div class="wrap sec-grid">
+      <div class="rail"><span class="n">06</span><span class="label">Contact</span></div>
+      <div>
+        <h2 class="h2" id="contact-title"><span lang="en">Get in touch</span><span lang="fr">Me contacter</span></h2>
+        <p class="intro" lang="en">For internships, student roles or a conversation about markets.</p>
+        <p class="intro" lang="fr">Pour un stage, un poste étudiant ou une conversation sur les marchés.</p>
+        <div class="email-row">
+          <a class="email" data-email data-user="zakariyamohamad75" data-domain="outlook.com" href="#contact">zakariyamohamad75 [at] outlook.com</a>
+          <button class="copy" type="button" data-copy><span lang="en">Copy</span><span lang="fr">Copier</span></button>
+        </div>
+        <ul class="links">
+          <!-- TO FILL: your LinkedIn and GitHub URLs, then delete data-todo. -->
+          <li data-todo><a href="https://www.linkedin.com/in/YOUR-HANDLE" target="_blank" rel="noopener">LinkedIn <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 11 11 5m0 0H6m5 0v5"/></svg></a></li>
+          <li data-todo><a href="https://github.com/YOUR-USERNAME" target="_blank" rel="noopener">GitHub <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M5 11 11 5m0 0H6m5 0v5"/></svg></a></li>
+          <li><a href="cv.pdf" data-cv target="_blank" rel="noopener">CV (PDF) <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M8 2v8m0 0 3.5-3.5M8 10 4.5 6.5M2.5 13.5h11"/></svg></a></li>
+        </ul>
+        <p class="loc"><span lang="en">Grenoble, France — Paris time</span><span lang="fr">Grenoble, France — heure de Paris</span></p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap">
+    <span>© <span data-year>2026</span> Zakariya Mohamad · Grenoble, France</span>
+    <span><span lang="en">Last updated</span><span lang="fr">Mis à jour le</span> <time data-updated></time></span>
+    <a href="#top"><span lang="en">Back to top ↑</span><span lang="fr">Haut de page ↑</span></a>
+    <span class="fine-print"><span lang="en">Market notes are personal analysis and do not constitute investment advice.</span><span lang="fr">Les notes de marché sont des analyses personnelles et ne constituent pas un conseil en investissement.</span></span>
+  </div>
+</footer>
+
+<script>
+/* =====================================================================
+   1) YOUR MARKET NOTES — one object per published note, newest first.
+      status: "open" | "confirmed" | "refuted" | "partial"
+      url:    a note page (copy notes/note-template.html) or a PDF.
+      Dates are YYYY-MM-DD.
+   ===================================================================== */
+const NOTES = [
+  // {
+  //   no: 1,
+  //   title: "Your note title",
+  //   call: "Your quantified, dated prediction",
+  //   published: "2026-11-06",
+  //   check: "2026-12-06",
+  //   status: "open",
+  //   url: "notes/2026-11-06-note-01.html"
+  // },
+];
+
+/* 2) Hosts where the site is public: placeholders (data-todo) are removed there.
+      If you move to a custom domain later, add it here, e.g. /^www\.yourname\.com$/i */
+const PUBLIC_HOSTS = [/\.github\.io$/i];
+
+(() => {
+  "use strict";
+  const root = document.documentElement;
+  const LIVE = PUBLIC_HOSTS.some((r) => r.test(location.hostname));
+
+  const T = {
+    en: {
+      title: "Zakariya Mohamad — Applied Mathematics & Economics",
+      desc: "Zakariya Mohamad — applied mathematics and economics at Université Grenoble Alpes. Builder of Zachbank, a full-stack personal-finance platform, and author of one-page market notes with dated, checkable predictions.",
+      locale: "en-US",
+      status: { open: "Open", confirmed: "Confirmed", refuted: "Refuted", partial: "Partial" },
+      th: { no: "No.", note: "Note", call: "Prediction", pub: "Published", check: "Check date", status: "Status" },
+      empty: "Note No. 1 is in preparation.",
+      rec: { pub: "Published", scored: "Scored", conf: "Confirmed", ref: "Refuted", hit: "Hit rate" },
+      copy: "Copy", copied: "Copied", menu: "Menu", close: "Close",
+      draft: "Preview — dashed items are placeholders. They are removed automatically on github.io.",
+      ok: "OK"
+    },
+    fr: {
+      title: "Zakariya Mohamad — Mathématiques appliquées & économie",
+      desc: "Zakariya Mohamad — mathématiques appliquées et économie à l’Université Grenoble Alpes. Concepteur de Zachbank, plateforme de finance personnelle full-stack, et auteur de notes de marché aux prédictions datées et vérifiables.",
+      locale: "fr-FR",
+      status: { open: "En cours", confirmed: "Confirmée", refuted: "Réfutée", partial: "Partielle" },
+      th: { no: "N°", note: "Note", call: "Prédiction", pub: "Publiée", check: "Vérification", status: "Statut" },
+      empty: "La note n° 1 est en préparation.",
+      rec: { pub: "Publiées", scored: "Évaluées", conf: "Confirmées", ref: "Réfutées", hit: "Taux de réussite" },
+      copy: "Copier", copied: "Copié", menu: "Menu", close: "Fermer",
+      draft: "Aperçu — les éléments en pointillés sont à remplir. Ils sont retirés automatiquement sur github.io.",
+      ok: "OK"
+    }
+  };
+  let lang = "en";
+
+  /* ---------- helpers ---------- */
+  const $ = (s, c = document) => c.querySelector(s);
+  const $$ = (s, c = document) => Array.from(c.querySelectorAll(s));
+  const esc = (s) => String(s ?? "").replace(/[&<>"']/g, (c) => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;", "'": "&#39;" }[c]));
+  const parseDay = (s) => { const [y, m, d] = String(s).split("-").map(Number); return new Date(Date.UTC(y, (m || 1) - 1, d || 1, 12)); };
+  const fmtDay = (s) => new Intl.DateTimeFormat(T[lang].locale, { day: "numeric", month: "short", year: "numeric", timeZone: "UTC" }).format(parseDay(s));
+  const store = {
+    get(k) { try { return localStorage.getItem(k); } catch (e) { return null; } },
+    set(k, v) { try { localStorage.setItem(k, v); } catch (e) { /* private mode */ } }
+  };
+
+  /* ---------- clocks ---------- */
+  const clockEls = $$("[data-tz]");
+  const fmts = new Map(clockEls.map((el) => [el.dataset.tz, new Intl.DateTimeFormat("en-GB", { hour: "2-digit", minute: "2-digit", hour12: false, timeZone: el.dataset.tz })]));
+  const todayEl = $("[data-today]");
+  function tick() {
+    const now = new Date();
+    clockEls.forEach((el) => { el.textContent = fmts.get(el.dataset.tz).format(now); el.setAttribute("datetime", now.toISOString()); });
+    if (todayEl) todayEl.textContent = new Intl.DateTimeFormat(T[lang].locale, { weekday: "short", day: "numeric", month: "short", year: "numeric" }).format(now);
+  }
+  tick();
+  setInterval(tick, 15000);
+
+  /* ---------- notes ledger ---------- */
+  function renderNotes() {
+    const body = $("#notes-body");
+    const rec = $("[data-record]");
+    const t = T[lang];
+    if (!NOTES.length) {
+      body.innerHTML = `<tr class="empty"><td colspan="6">${esc(t.empty)}</td></tr>`;
+      rec.hidden = true;
+      return;
+    }
+    body.innerHTML = NOTES.map((n) => {
+      const st = ["open", "confirmed", "refuted", "partial"].includes(n.status) ? n.status : "open";
+      const title = n.url ? `<a href="${esc(n.url)}">${esc(n.title)}</a>` : esc(n.title);
+      return `<tr>
+        <td class="no">${esc(String(n.no).padStart(2, "0"))}</td>
+        <td class="t">${title}</td>
+        <td data-th="${esc(t.th.call)}">${esc(n.call)}</td>
+        <td class="d" data-th="${esc(t.th.pub)}"><time datetime="${esc(n.published)}">${esc(fmtDay(n.published))}</time></td>
+        <td class="d" data-th="${esc(t.th.check)}"><time datetime="${esc(n.check)}">${esc(fmtDay(n.check))}</time></td>
+        <td data-th="${esc(t.th.status)}"><span class="badge ${st}">${esc(t.status[st])}</span></td>
+      </tr>`;
+    }).join("");
+    const scored = NOTES.filter((n) => n.status && n.status !== "open");
+    const conf = scored.filter((n) => n.status === "confirmed").length;
+    const ref = scored.filter((n) => n.status === "refuted").length;
+    const part = scored.filter((n) => n.status === "partial").length;
+    const hit = scored.length ? Math.round(((conf + 0.5 * part) / scored.length) * 100) + "%" : "—";
+    rec.innerHTML = [
+      [NOTES.length, t.rec.pub], [scored.length, t.rec.scored], [conf, t.rec.conf], [ref, t.rec.ref], [hit, t.rec.hit]
+    ].map(([v, l]) => `<div><span class="v tnum">${esc(v)}</span><span class="label">${esc(l)}</span></div>`).join("");
+    rec.hidden = false;
+  }
+
+  /* ---------- email (assembled here to keep it away from scrapers) ---------- */
+  let address = "";
+  $$("[data-email]").forEach((a) => {
+    address = `${a.dataset.user}@${a.dataset.domain}`;
+    a.href = `mailto:${address}`;
+    a.innerHTML = `${esc(a.dataset.user)}<wbr>@${esc(a.dataset.domain)}`;
+  });
+  const copyBtn = $("[data-copy]");
+  if (copyBtn) {
+    copyBtn.addEventListener("click", async () => {
+      try { await navigator.clipboard.writeText(address); }
+      catch (e) {
+        const ta = document.createElement("textarea"); ta.value = address; document.body.appendChild(ta); ta.select();
+        try { document.execCommand("copy"); } catch (err) { /* ignore */ } ta.remove();
+      }
+      copyBtn.textContent = T[lang].copied;
+      setTimeout(() => { copyBtn.innerHTML = `<span lang="en">Copy</span><span lang="fr">Copier</span>`; }, 1800);
+    });
+  }
+
+  /* ---------- language ---------- */
+  const langBtns = $$("[data-set-lang]");
+  const metaDesc = $('meta[name="description"]');
+  function setLang(l, persist) {
+    lang = T[l] ? l : "en";
+    root.dataset.lang = lang;
+    root.lang = lang;
+    document.title = T[lang].title;
+    if (metaDesc) metaDesc.setAttribute("content", T[lang].desc);
+    langBtns.forEach((b) => b.setAttribute("aria-pressed", String(b.dataset.setLang === lang)));
+    renderNotes();
+    tick();
+    const upd = $("[data-updated]");
+    if (upd) {
+      const d = new Date(document.lastModified);
+      if (!isNaN(d)) { upd.textContent = new Intl.DateTimeFormat(T[lang].locale, { day: "numeric", month: "long", year: "numeric" }).format(d); upd.setAttribute("datetime", d.toISOString().slice(0, 10)); }
+    }
+    const banner = $(".draft-banner span");
+    if (banner) banner.textContent = T[lang].draft;
+    if (persist) store.set("zm-lang", lang);
+  }
+  langBtns.forEach((b) => b.addEventListener("click", () => setLang(b.dataset.setLang, true)));
+  const urlLang = new URLSearchParams(location.search).get("lang");
+  setLang(urlLang || store.get("zm-lang") || "en", Boolean(urlLang));
+
+  /* ---------- header: scrolled state, mobile menu, active section ---------- */
+  const header = $("#header");
+  const onScroll = () => header.classList.toggle("scrolled", window.scrollY > 4);
+  onScroll();
+  window.addEventListener("scroll", onScroll, { passive: true });
+
+  const menuBtn = $(".menu-btn");
+  const closeMenu = () => { header.classList.remove("open"); menuBtn.setAttribute("aria-expanded", "false"); menuBtn.textContent = T[lang].menu; };
+  menuBtn.addEventListener("click", () => {
+    const open = !header.classList.contains("open");
+    header.classList.toggle("open", open);
+    menuBtn.setAttribute("aria-expanded", String(open));
+    menuBtn.textContent = open ? T[lang].close : T[lang].menu;
+  });
+  $$(".nav a").forEach((a) => a.addEventListener("click", closeMenu));
+  document.addEventListener("keydown", (e) => { if (e.key === "Escape") closeMenu(); });
+
+  const links = new Map($$(".nav a").map((a) => [a.getAttribute("href").slice(1), a]));
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach((en) => {
+        if (en.isIntersecting) { links.forEach((a) => a.classList.remove("active")); const a = links.get(en.target.id); if (a) a.classList.add("active"); }
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    $$("main section[id]").forEach((s) => io.observe(s));
+  }
+
+  /* ---------- footer year ---------- */
+  const y = $("[data-year]"); if (y) y.textContent = new Date().getFullYear();
+
+  /* ---------- live vs preview ---------- */
+  if (LIVE) {
+    $$("[data-todo]").forEach((el) => el.remove());
+    fetch("cv.pdf", { method: "HEAD", cache: "no-store" })
+      .then((r) => { if (!r.ok) throw new Error(); })
+      .catch(() => $$("[data-cv]").forEach((a) => (a.closest("li") || a).remove()));
+  } else if ($("[data-todo]")) {
+    root.classList.add("is-draft");
+    const b = document.createElement("div");
+    b.className = "draft-banner";
+    b.setAttribute("role", "status");
+    b.innerHTML = `<span>${esc(T[lang].draft)}</span><button type="button">${esc(T[lang].ok)}</button>`;
+    b.querySelector("button").addEventListener("click", () => b.remove());
+    document.body.appendChild(b);
+  }
+})();
+</script>
+</body>
+</html>
