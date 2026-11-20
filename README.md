@@ -1,9 +1,8 @@
 ### Zakariya Mohamad
 
-Undergraduate in **applied mathematics and economics** (Licence MIASHS) at Université Grenoble Alpes, aiming for a career in finance.
+Undergraduate in **applied mathematics and economics** (Licence MIASHS) at Université Grenoble Alpes.
 
 - **Building:** Zachbank, a full-stack personal-finance platform: Spring Boot, PostgreSQL, React/TypeScript, open banking via TrueLayer, and a double-entry ledger.
-- **Writing:** one-page market notes with dated, checkable predictions.
 - **Languages:** French · English · Italian.
 
 **Site:** [zakariamoh.github.io/zakariamoh](https://zakariamoh.github.io/zakariamoh/)
